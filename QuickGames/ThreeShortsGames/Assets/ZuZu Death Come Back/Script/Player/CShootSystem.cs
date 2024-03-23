@@ -8,16 +8,30 @@ namespace Zuzu
     public class CShootSystem : MonoBehaviour
 {
 
+    private CSelectedWeapon selectedWeapon;
     protected int Ammo;
     protected int AmmoInMag;
     protected bool IsShoot;
     protected bool CanReload;
     protected int MultiplyWeapon;
-
+    
     //Dispara el arma
     protected virtual void Fire()
     {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            IsShoot = true;
+            
+
+        }
+        else
+        {
+             IsShoot = false;
+
+        }
         
+
+
     }
 
     //Recarga el arma

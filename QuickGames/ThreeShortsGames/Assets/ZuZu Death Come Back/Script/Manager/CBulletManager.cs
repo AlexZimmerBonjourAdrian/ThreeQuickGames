@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Zuzu;
-
+using System;
 namespace Zuzu
 {
         public class CBulletManager : MonoBehaviour
     {
         public List<CGenericBullet> _ListBullets = new List<CGenericBullet>();
-        [SerializeField]public CGenericBullet[] _genericBullet;
+        [SerializeField]public GameObject[] _genericBullet;
 
         //Singleton
         private  static CBulletManager Inst
