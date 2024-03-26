@@ -8,14 +8,15 @@ namespace Zuzu
         public class CBulletManager : MonoBehaviour
     {
         public List<CGenericBullet> _ListBullets = new List<CGenericBullet>();
-        [SerializeField]public GameObject[] _genericBullet;
+        [SerializeField] private GameObject _bulletAsset;
+        //public GameObject GenericBullet;
 
         //Singleton
-        private  static CBulletManager Inst
+        public static CBulletManager Inst
         {
             get
             {
-                if (Inst == null)
+                if (_inst == null)
                 {
                     GameObject obj = new GameObject("BulletManager");
                     return obj.AddComponent<CBulletManager>();
@@ -24,15 +25,32 @@ namespace Zuzu
             }
         }
 
-        public static CBulletManager _inst;
-
-
-        public void SpawnBullet(Vector2 Pos)
+        private static CBulletManager _inst;
+        public void Start()
         {
-            GameObject obj = (GameObject)Instantiate(_genericBullet[0], Pos, Quaternion.identity);
-            CGenericBullet newBullet = obj.AddComponent<CGenericBullet>();
-            _ListBullets.Add(newBullet);
+            _inst = this;
+        }
+        private void Update()
+        {
+            //for(int i = _ListBullets.Count - 1; i>= 0; i--)
+            //{
+            //    if (_ListBullets[i] == null)
+            //    {
+            //        _ListBullets.RemoveAt(i);
+            //    }
+            //}
+        }
+        public void Spawn(Vector2 post,Vector2 Vel)
+        {
+            GameObject obj = (GameObject)Instantiate(_bulletAsset, post, Quaternion.identity);
+            obj.GetComponent<Rigidbody2D>().AddForce(Vel, ForceMode2D.Impulse);
 
+            // Vector3 localScale = obj.transform.localScale;
+            //localScale.x * =Rot
+            CGenericBullet newBullet = obj.GetComponent<CGenericBullet>();
+            //newBullet.AddVel(Vel);
+          //  _bulletList.Add(newBullet);
+            Destroy(obj, 3f);
         }
     }
 }

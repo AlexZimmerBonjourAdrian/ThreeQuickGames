@@ -34,7 +34,22 @@ namespace Zuzu
             {
                 _Anim.SetBool("IsRun", false);
             }
-            
+
+
+            if (_Move.y < 0)
+            {
+                _Anim.SetBool("IsRun", true);
+            }
+            else if (_Move.y > 0)
+            {
+                _Anim.SetBool("IsRun", true);
+            }
+            else
+            {
+                _Anim.SetBool("IsRun", false);
+            }
+
+
         }
 
         // Update is called once per frame

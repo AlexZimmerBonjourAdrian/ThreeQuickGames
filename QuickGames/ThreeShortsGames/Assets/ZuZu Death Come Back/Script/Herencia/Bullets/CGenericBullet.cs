@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,11 @@ namespace Zuzu
         private float Speed;
         private float Sprite;
 
-        //Prite
+       
+
+        public virtual void AddVel(Vector3 vel)
+        {
+            
+        }
     }
 }

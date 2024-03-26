@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zuzu;
 
-public class CNormalBullet : MonoBehaviour
+public class CNormalBullet : CGenericBullet
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D _Rig;
+    private void SpeedAddImpulse()
     {
-        
+        _Rig = GetComponent<Rigidbody2D>();
+      
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        SpeedAddImpulse();
     }
+
+    public override void AddVel(Vector3 vel)
+    {
+        _Rig.AddForce(vel, ForceMode2D.Impulse);
+    }
+
 }

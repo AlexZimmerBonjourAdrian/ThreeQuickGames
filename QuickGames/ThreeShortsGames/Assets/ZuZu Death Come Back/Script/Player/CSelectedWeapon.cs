@@ -19,6 +19,15 @@ public class CSelectedWeapon : MonoBehaviour
     {
         changeWeapon();
     }
+
+    public List<DTDataWeapon> GetListWeaponComplete()
+    {
+        return _List_WeaponComplete;
+    }
+    public List<DTDataWeapon> GetListWeaponHave()
+    {
+        return _ListWeapon_Have;
+    }
     // Update is called once per frame
     private void changeWeapon()
     {
